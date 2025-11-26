@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="index.js" defer></script>
+    <title>Project 2</title>
+</head>
+
+<body id="dogs__body">
+    <section>
+        <nav>
+            <div class="nav__container">
+                <img class="logo" src="./assets/dog logo.jpg" alt="">
+                <ul class="nav__links">
+                    <li><a href="#" class="nav__link">Home</a></li>
+                    <li><a href="#" class="nav__link">Contact</a></li>
+                    <li><a href="#" class="nav__link nav__link--primary">Dogs</a></li>
+                </ul>
+                <button class="btn__menu">
+                    <i class="fas fas-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </section>
+    <main id="dogs__main">
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="dogs__header">
+                        <h2 class="section__title dogs__header--title">
+                            All Dogs
+                        </h2>
+                        <select id="filter">
+                            <option value="" disabled selected>Sort</option>
+                            <option value="HEIGHT">Height</option>
+                            <option value="WEIGHT">Weight</option>
+                            <option value="Breed">Breed</option>
+                        </select>
+                    </div>
+                    <div class="dog__list">
+                        <div class="dog__card">
+                            <figure class="dog__img--wrapper">
+                                <img class="dog__img" src="./assets/cdn2.ryzzmgqE7_1280.jpg" alt="">
+                            </figure>
+                            <div class="name__details">
+                                <div class="dog__title">
+                                    Affenpinscher
+                                </div>
+                                <div class="dog__breed--list">
+                                    <ol class="dogs__breed">
+                                        <li><b>height: </b>Height '9 - 11.5'</li>
+                                        <li><b>weight: </b>Weight: '6 - 13'</li>
+                                        <li><b>breed: </b>Breed: Toy</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
