@@ -3,14 +3,16 @@
 const listEl = document.querySelector('.dog__list')
 
 async function main() {
-    const breedsRes = await fetch("https://api.thedogapi.com/v1/images/search?limit=2?limit=20");
+    const breedsRes = await fetch("https://api.thedogapi.com/v1/breeds?limit=20");
     const breedsData = await breedsRes.json();
     listEl.innerHTML = breedsData.map((breed) => breedHTML(breed)).join("");
 }
 
 function breedHTML(breed) {
     const breedGroup = breed.breed_group || 'N/A'
-    const imageUrl = breed.image?.url || 'https://api.thedogapi.com'
+    const imageUrl = breed.reference_image_id 
+        ? `https://cdn2.thedogapi.com/images/${breed.reference_image_id}.jpg`
+        : '';
 
     return `<div class="dog__card">
         <figure class="dog__img--wrapper">
@@ -22,9 +24,9 @@ function breedHTML(breed) {
             </div>
             <div class="dog__breed">
                 <ol class="dogs__breed--list">
-                    <li><b>Height:</b>${breed.height.imperial} inches</li>
-                    <li><b>Weight:</b>${breed.weight.imperial} lbs</li>
-                    <li><b>Group:</b>${breed.breedGroup || 'N/A'}</li>
+                    <li><b>Height: </b>${breed.height.imperial} inches</li>
+                    <li><b>Weight: </b>${breed.weight.imperial} lbs</li>
+                    <li><b>Group: </b>${breed.breedGroup}</li>
                 </ol>
             </div>
         </div>
