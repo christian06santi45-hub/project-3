@@ -14,7 +14,6 @@ let allBreeds = [];
     });
 
     async function main() {
-        // ... rest of your main function
         const breedsRes = await fetch("api.thedogapi.com");
         const breedsData = await breedsRes.json();
         allBreeds = breedsData; 
@@ -22,12 +21,10 @@ let allBreeds = [];
     }
 
     function displayBreeds(breedsToDisplay) {
-        // ... rest of your displayBreeds function
         listEl.innerHTML = breedsToDisplay.map((breed) => breedHTML(breed)).join("");
     }
 
     function breedHTML(breed) {
-        // ... rest of your breedHTML function
         const breedGroup = breed.breed_group || 'N/A';
         const imageUrl = breed.image?.url ?? '';
 
