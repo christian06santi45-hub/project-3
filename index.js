@@ -1,19 +1,17 @@
 //curl -H "x-api-key: live_8q3IvbAUEkjdrlTHgtNmDeQnrqyUz6RWiC7F7jTxi44yPLwRRrxAFIrVSVG6chWm" "https://api.thedogapi.com/v1/images/search?limit=2"
 //curl -H "x-api-key: live_8q3IvbAUEkjdrlTHgtNmDeQnrqyUz6RWiC7F7jTxi44yPLwRRrxAFIrVSVG6chWm" "https://api.thedogapi.com/v1/breeds"
 let allBreeds = [];
+    const listEl = document.querySelector('.dog__list')
+    const searchbar = document.getElementById('search__input');
 
-const listEl = document.querySelector(".dog__list");
-const searchbar = document.querySelector(".search__input"); // <-- FIXED
-
-searchbar.addEventListener("input", (e) => {
-  const searchString = e.target.value.toLowerCase();
-
-  const filteredBreeds = allBreeds.filter((breed) =>
-    breed.name.toLowerCase().includes(searchString)
-  );
-
-  displayBreeds(filteredBreeds);
-});
+    searchbar.addEventListener('input', (e) => {
+        const searchString = e.target.value.toLowerCase();
+        const filteredBreeds = allBreeds.filter((breed) => {
+            return breed.name.toLowerCase().includes(searchString);
+        });
+        
+        displayBreeds(filteredBreeds);
+    });
 
 async function main() {
   const breedsRes = await fetch("https://api.thedogapi.com/v1/breeds?limit=20");
