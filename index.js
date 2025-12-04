@@ -28,13 +28,17 @@ function displayBreeds(breedsToDisplay) {
 }
 
 function breedHTML(breed) {
-  const breedGroup = breed.breed_group || "N/A";
-  const imageUrl = breed.image?.url || "https://api.thedogapi.com/v1/images/search?limit=2";
+    const breedGroup = breed.breed_group || 'N/A';
 
-  const height = breed.height?.imperial || "N/A";
-  const weight = breed.weight?.imperial || "N/A";
+    const imageId = breed.reference_image_id;
+  const imageUrl = imageId
+    ? `https://cdn2.thedogapi.com/images/${imageId}.jpg`
+    : '';
 
-  return `
+    const height = breed.height?.imperial || 'N/A';
+    const weight = breed.weight?.imperial || 'N/A';
+
+    return `
         <div class="dog__card">
             <figure class="dog__img--wrapper">
                 <img class="dog__img" src="${imageUrl}" alt="${breed.name}">
@@ -43,9 +47,9 @@ function breedHTML(breed) {
                 <div class="dog__title">${breed.name}</div>
                 <div class="dog__breed">
                     <ol class="dogs__breed--list">
-                        <li><b>Height: </b>${height} inches</li>
-                        <li><b>Weight: </b>${weight} lbs</li>
-                        <li><b>Group: </b>${breedGroup}</li>
+                        <li><b>Height:</b> ${height} inches</li>
+                        <li><b>Weight:</b> ${weight} lbs</li>
+                        <li><b>Group:</b> ${breedGroup}</li>
                     </ol>
                 </div>
             </div>
